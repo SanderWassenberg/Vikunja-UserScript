@@ -53,9 +53,9 @@ window.addEventListener("keydown", e => {
 window.addEventListener("click", e => {
   if (e.target.matches(".filter-container>button")) {
     if (e.target.innerText.toLowerCase() === "filters") {
-        setTimeout(()=>{ // this timeout of 0 is necessary to make this work on keypresses, otherwise the queryselector can return null (for some reason)
-          document.querySelector("body>section .filter-input > .input").focus()
-        }, 0);
+      setTimeout(()=>{ // this timeout of 0 is necessary to make this work on keypresses, otherwise the queryselector can return null (for some reason)
+        document.querySelector("body>section .filter-input > .input").focus()
+      }, 0);
     }
   }
 });
