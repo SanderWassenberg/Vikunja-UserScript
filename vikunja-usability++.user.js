@@ -4,12 +4,14 @@
 // @match       http://*/*
 // @match       https://*/*
 // @grant       none
-// @version     1.01
+// @run-at      document-end
+// @version     1.02
 // @author      Sander
 // @description Fix some annoyances, add some features.
 // ==/UserScript==
 
-if (!document.title.endsWith("| Vikunja")) return;
+if (document.title !== "Vikunja") return; // works if @run-at is document-end
+if (!document.head.querySelector("meta[name='description']")?.content.startsWith("Vikunja")) return;
 console.log("%cRunning Sander's custom Vikunja script", "color:cyan");
 
 window.addEventListener("keydown", e => {
