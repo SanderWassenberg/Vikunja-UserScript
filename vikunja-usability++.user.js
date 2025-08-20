@@ -5,7 +5,7 @@
 // @match       https://*/*
 // @grant       none
 // @run-at      document-end
-// @version     1.02
+// @version     1.03
 // @author      Sander
 // @description Fix some annoyances, add some features.
 // ==/UserScript==
@@ -44,7 +44,6 @@ window.addEventListener("keydown", e => {
     // This adds:
     // Esc closes any modal
     case "Escape": {
-      console.log("escape!");
       document.querySelector("body>section.modal-mask>.modal-container>button.close").click();
     } break;
   }
