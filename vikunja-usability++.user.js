@@ -5,7 +5,7 @@
 // @match       https://*/*
 // @grant       none
 // @run-at      document-end
-// @version     1.03
+// @version     1.04
 // @author      Sander
 // @description Fix some annoyances, add some features.
 // ==/UserScript==
@@ -21,10 +21,9 @@ window.addEventListener("keydown", e => {
     // Pressing Enter in the filter screen runs the query, so I don't have to move my mouse to the "Show Results" Button
     case "Enter": {
       if (document.activeElement.matches(".filter-input > .input")) {
-        const button = Array.prototype.find.call(
+        Array.prototype.find.call(
           document.querySelectorAll("footer > button"),
-          e => e.innerText.toLowerCase() === "show results");
-        button.click();
+          e => e.innerText.toLowerCase() === "show results")?.click();
       }
     } break;
 
@@ -37,14 +36,14 @@ window.addEventListener("keydown", e => {
         e.preventDefault(); // do not register keystroke
         Array.prototype.find.call(
           document.querySelectorAll(".filter-container > button"),
-          e => e.innerText.toLowerCase() === "filters").click();
+          e => e.innerText.toLowerCase() === "filters")?.click();
       }
     } break;
 
     // This adds:
     // Esc closes any modal
     case "Escape": {
-      document.querySelector("body>section.modal-mask>.modal-container>button.close").click();
+      document.querySelector("body>section.modal-mask>.modal-container>button.close")?.click();
     } break;
   }
 });
